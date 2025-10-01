@@ -5,7 +5,7 @@ import { orgSchema, navSchema, faqSchema } from "@/lib/schema";
 
 export default function Hero() {
   useEffect(() => {
-    const add = (obj: any) => {
+    const add = (obj: Record<string, unknown>) => {
       const s = document.createElement("script");
       s.type = "application/ld+json";
       s.text = JSON.stringify(obj);
@@ -23,10 +23,10 @@ export default function Hero() {
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
 
-      {/* Gradient overlay to boost text readability */}
+      {/* Gradient overlay */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-l from-black/70 via-black/40 to-black/10" />
 
-      {/* Hero Content aligned right, lowered to middle */}
+      {/* Hero Content */}
       <div className="mx-auto max-w-7xl px-4 h-full flex items-center justify-end">
         <div className="max-w-xl text-right translate-y-16">
           <p className="inline-block rounded-full glass-dark px-3 py-1 text-[11px] tracking-wide border-soft">
@@ -44,7 +44,6 @@ export default function Hero() {
             gateway to real financial freedom.
           </p>
 
-          {/* Buttons */}
           <div className="mt-6 flex flex-col sm:flex-row items-end justify-end gap-3">
             <a
               href="/contact"
@@ -60,7 +59,6 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Contact line */}
           <p className="mt-6 text-sm text-neutral-200">
             <span className="font-semibold text-white">Contact:</span> Zacharia Rantseli —{" "}
             <a

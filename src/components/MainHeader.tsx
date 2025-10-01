@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import MobileNav from "./MobileNav";
 
 export default function MainHeader() {
@@ -12,14 +14,21 @@ export default function MainHeader() {
   return (
     <header className="absolute top-9 left-0 w-full z-40 glass-dark text-white">
       <div className="mx-auto max-w-7xl h-20 px-4 flex items-center justify-between">
-        {/* Logo (slightly reduced per your last change) */}
-        <a href="/" className="flex items-center gap-2">
-          <img src="/logo.svg" alt="YA-RONA" className="h-14 w-auto" />
-        </a>
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/logo.svg"
+            alt="YA-RONA"
+            width={160}
+            height={50}
+            className="h-14 w-auto"
+            priority
+          />
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-4">
-          <a href="/" className={itemCls}>Home</a>
+          <Link href="/" className={itemCls}>Home</Link>
 
           {/* Services Dropdown */}
           <div
@@ -27,23 +36,23 @@ export default function MainHeader() {
             onMouseEnter={() => setOpen("services")}
             onMouseLeave={() => setOpen(null)}
           >
-            <a href="/services" className={itemCls}>Services</a>
+            <Link href="/services" className={itemCls}>Services</Link>
             <div
               className={`absolute left-0 mt-2 min-w-[280px] rounded-xl glass-dark border-soft p-2 shadow-lg
                          ${open === "services" ? "block" : "hidden"} group-hover:block`}
             >
-              <a href="/services/accounts" className={itemCls + " block"}>Bank Accounts</a>
-              <a href="/services/savings" className={itemCls + " block"}>Savings & Investments</a>
-              <a href="/services/loans" className={itemCls + " block"}>Loan Facilities</a>
-              <a href="/services/safe-deposit" className={itemCls + " block"}>Safe Deposit</a>
-              <a href="/services/education" className={itemCls + " block"}>Financial Education</a>
+              <Link href="/services/accounts" className={itemCls + " block"}>Bank Accounts</Link>
+              <Link href="/services/savings" className={itemCls + " block"}>Savings & Investments</Link>
+              <Link href="/services/loans" className={itemCls + " block"}>Loan Facilities</Link>
+              <Link href="/services/safe-deposit" className={itemCls + " block"}>Safe Deposit</Link>
+              <Link href="/services/education" className={itemCls + " block"}>Financial Education</Link>
             </div>
           </div>
 
-          <a href="/about" className={itemCls}>About</a>
-          <a href="/csi" className={itemCls}>CSI</a>
-          <a href="/tenders" className={itemCls}>Tenders</a>
-          <a href="/careers" className={itemCls}>Careers</a>
+          <Link href="/about" className={itemCls}>About</Link>
+          <Link href="/csi" className={itemCls}>CSI</Link>
+          <Link href="/tenders" className={itemCls}>Tenders</Link>
+          <Link href="/careers" className={itemCls}>Careers</Link>
 
           {/* Resources Dropdown */}
           <div
@@ -51,28 +60,28 @@ export default function MainHeader() {
             onMouseEnter={() => setOpen("resources")}
             onMouseLeave={() => setOpen(null)}
           >
-            <a href="/resources" className={itemCls}>Resources</a>
+            <Link href="/resources" className={itemCls}>Resources</Link>
             <div
               className={`absolute left-0 mt-2 min-w-[240px] rounded-xl glass-dark border-soft p-2 shadow-lg
                          ${open === "resources" ? "block" : "hidden"} group-hover:block`}
             >
-              <a href="/resources/faqs" className={itemCls + " block"}>FAQs</a>
-              <a href="/resources/downloads" className={itemCls + " block"}>Downloads (Forms & Pricing)</a>
-              <a href="/resources/news" className={itemCls + " block"}>News & Updates</a>
+              <Link href="/resources/faqs" className={itemCls + " block"}>FAQs</Link>
+              <Link href="/resources/downloads" className={itemCls + " block"}>Downloads</Link>
+              <Link href="/resources/news" className={itemCls + " block"}>News & Updates</Link>
             </div>
           </div>
 
-          <a href="/contact" className={itemCls}>Contact</a>
+          <Link href="/contact" className={itemCls}>Contact</Link>
         </nav>
 
-        {/* CTA */}
+        {/* CTA Button */}
         <div className="hidden md:block">
-          <a
+          <Link
             href="/contact"
             className="rounded-md bg-[var(--brand-gold)] text-black px-5 py-2 font-semibold shadow hover:shadow-lg transition"
           >
             Open Account
-          </a>
+          </Link>
         </div>
 
         {/* Mobile */}
