@@ -25,20 +25,23 @@ export default function MobileNav() {
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-50 bg-black text-white">
-          <div className="flex items-center justify-between p-4 border-b border-white/10">
+        // FULL SCREEN, SOLID BLACK, ABOVE TOPBAR/HEADER
+        <div className="fixed inset-0 z-[100] bg-black text-white">
+          {/* Drawer header (solid) */}
+          <div className="flex items-center justify-between p-4 border-b border-white/10 bg-black">
             <Image src="/logo.svg" alt="YA-RONA" width={120} height={40} />
             <button aria-label="Close menu" onClick={() => setOpen(false)}>
               <FiX size={28} />
             </button>
           </div>
 
-          <nav className="p-2">
+          {/* NAV AREA (solid) */}
+          <nav className="p-2 bg-black h-[calc(100vh-64px)] overflow-y-auto">
             <Link href="/" onClick={() => setOpen(false)} className={linkCls}>
               Home
             </Link>
 
-            {/* Services group */}
+            {/* Services group (solid background for submenu) */}
             <button
               onClick={() => toggle("services")}
               className="w-full flex items-center justify-between px-4 py-3 font-semibold"
@@ -49,7 +52,7 @@ export default function MobileNav() {
               />
             </button>
             {openGroup === "services" && (
-              <div className="pl-2">
+              <div className="pl-2 bg-black">
                 <Link href="/services" onClick={() => setOpen(false)} className={linkCls}>
                   Overview
                 </Link>
@@ -98,7 +101,7 @@ export default function MobileNav() {
               />
             </button>
             {openGroup === "resources" && (
-              <div className="pl-2">
+              <div className="pl-2 bg-black">
                 <Link href="/resources" onClick={() => setOpen(false)} className={linkCls}>
                   Overview
                 </Link>
