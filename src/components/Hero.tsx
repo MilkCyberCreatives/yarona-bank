@@ -11,7 +11,9 @@ export default function Hero() {
       s.text = JSON.stringify(obj);
       document.head.appendChild(s);
     };
-    add(orgSchema); add(navSchema); add(faqSchema);
+    add(orgSchema);
+    add(navSchema);
+    add(faqSchema);
   }, []);
 
   return (
@@ -59,6 +61,7 @@ export default function Hero() {
             </a>
           </div>
 
+          {/* Contacts */}
           <p className="mt-6 text-sm text-neutral-200">
             <span className="font-semibold text-white">Contact:</span> Zacharia Rantseli —{" "}
             <a
@@ -66,6 +69,15 @@ export default function Hero() {
               className="underline decoration-[var(--brand-gold)] underline-offset-4 hover:text-[var(--brand-gold)]"
             >
               083 684 1715
+            </a>
+          </p>
+          <p className="mt-2 text-sm text-neutral-200">
+            <span className="font-semibold text-white">Contact:</span> Mrs Annie Matime —{" "}
+            <a
+              href="tel:+27670058292"
+              className="underline decoration-[var(--brand-gold)] underline-offset-4 hover:text-[var(--brand-gold)]"
+            >
+              067 005 8292
             </a>
           </p>
         </div>
